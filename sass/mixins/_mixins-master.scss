@@ -1,0 +1,93 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Rem output with px fallback for margins
+@mixin margin($sizeValue: 1) {
+	margin: ($sizeValue * 16) * 1px;
+	margin: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+//Shadows!
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+	-webkit-box-shadow:$top $left $blur $color #{$inset};
+    -moz-box-shadow:$top $left $blur $color #{$inset};
+    box-shadow:$top $left $blur $color #{$inset};
+    }
+
+@mixin text-shadow($horizOffset, $vertOffset, $blur, $color) {
+    -webkit-text-shadow: $horizOffset $vertOffset $blur $color;
+    -moz-text-shadow: $horizOffset $vertOffset $blur $color;
+    -ms-text-shadow: $horizOffset $vertOffset $blur $color; /* IE 10+ */
+    -o-text-shadow: $horizOffset $vertOffset $blur $color;
+    text-shadow: $horizOffset $vertOffset $blur $color;
+ 	}
+
+//Media Query Management
+
+@mixin bp($point) {
+  
+  $bp-small: "(min-width: 37em)";
+  $bp-smallmax: "(max-width: 33em)";
+  $bp-medium: "(min-width: 50em)";
+  $bp-mediummax: "(max-width: 50em)";
+  $bp-large: "(min-width: 57em)";
+  $bp-footerbreak:"(max-width: 72em)";
+  $bp-metabreak:"(min-width: 50em) and (max-width: 1250px)";
+
+  @if $point == small {
+    @media #{$bp-small} { @content; }
+  }
+  @else if $point == medium {
+    @media #{$bp-medium} { @content; }
+  }
+
+  @else if $point == mediummax {
+    @media #{$bp-mediummax} { @content; }
+  }
+
+  @else if $point == large {
+    @media #{$bp-large}  { @content; }
+  }
+  @else if $point == smallmax {
+    @media #{$bp-smallmax}  { @content; }
+  }
+
+  @else if $point == footerbreak {
+    @media #{$bp-footerbreak}  { @content; }
+  }
+
+  @else if $point == metabreak {
+    @media #{$bp-metabreak}  { @content; }
+  }
+
+}
+
+//Mixin to Fix Font Awesome Compile Quirk
+
+@mixin content($content) {
+    content: unquote("\"")+unquote(str-insert($content,"\\", 1))+unquote("\"");
+  }
+

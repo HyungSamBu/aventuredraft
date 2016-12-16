@@ -1,0 +1,51 @@
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-family: $font__heading;
+	line-height: $font__line-height-heading;
+	
+}
+
+h1 {
+	font-family: $font__heading;
+	margin-top: $font_margin-rem * 2.5;
+	margin-bottom: $font_margin-rem;
+	@include font-size(3.2);	
+	a {
+		text-decoration: none;
+	}
+}
+
+h2 {
+	@include font-size(2.2);
+	font-family: $font__main;
+	font-weight: bold;
+	line-height: $font__line-height-heading * 0.8;
+}
+
+h3 {
+	@include font-size(2);
+	font-family: $font__main;
+	font-style: italic;
+	line-height: $font__line-height-heading * 0.6;
+}
+
+h4 {
+	@include font-size(1.8);
+	font-family: $font__main;
+	font-weight: bold;
+	line-height: $font__line-height-heading * 0.4;
+}
+
+h5 {
+	@include font-size(1.6);
+	font-family: $font__main;
+	font-weight: bold;
+	line-height: $font__line-height-heading * 0.4;
+}
+
+h6 {
+	@include font-size(1.4);
+	font-family: $font__main;
+	font-weight: bold;
+	line-height: $font__line-height-heading * 0.4;
+}

@@ -1,0 +1,76 @@
+.site-footer {
+	background-color: $color_dark;
+	color: $color_header-text;
+}
+.site-info {
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	text-align: center;	
+	line-height:0;
+	p {
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+}
+
+.social {		
+	width: 25%;
+	margin: 0 auto;
+
+	ul {
+		float: left;
+		list-style:none;
+		margin: 0em 0em 2em 0em;
+	}
+
+	li {			
+		display: block;
+		float: left;
+		@include font-size (2);
+		margin: 0.25em;
+		line-height: 0;
+	}
+}
+
+@include bp(mediummax) {
+		.social {
+			width: 100%;
+			ul {
+				width: 100%;
+			}
+			li {
+				width: 100%;
+				clear: both;
+				text-align: center;
+			}
+	}	
+
+
+		.fa-facebook-official{
+			&::after {
+			content: "  Facebook";
+			font-family: $font__main;
+			font-weight: 700;
+			@include font-size(2.0);
+			}
+		}
+
+		.fa-instagram{
+			&::after {
+			content: "  Instagram";
+			font-family: $font__main;
+			font-weight: 700;
+			@include font-size(2.0);
+			}
+		}
+
+		.fa-linkedin-square{
+			&::after {
+			content: "  LinkedIn";
+			font-family: $font__main;
+			font-weight: 700;
+			@include font-size(2.0);
+			}
+		}
+}

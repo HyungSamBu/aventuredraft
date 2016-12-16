@@ -1,0 +1,34 @@
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+
+	img[class*="wp-image-"] {
+		@include center-block;
+	}
+
+	.wp-caption-text {
+		margin: 0.8075em 0;
+	}
+	font-family: $font__main;
+	
+
+	.aligncenter{
+		margin-top: 2em;
+		margin-bottom: 2em;
+	}
+
+	.alignright, .alignleft {
+		margin-top: 0;
+		margin-bottom: 1.5em;
+	}
+
+	@include font-size(1);
+}
+
+.wp-caption-text {
+	display: block;
+	position: relative;
+	margin: 1.5em 0 2em 2em;
+	padding: 0 1em 2em;
+	font-style: italic;
+}

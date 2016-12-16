@@ -1,0 +1,97 @@
+.widget {
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+}
+
+.widget-title {
+	font-size: 1em;
+	margin: 2.5em 0;
+}
+
+.widget-area {
+	clear: both;
+	width: 100%;
+	font-family: $font__main;
+	font-size: 1em;
+	background-color: $color_header-text;
+	margin: 4em;
+	&::after{
+	    clear: both;
+	    content: "";
+	    display: block;
+	}
+}
+.recent-posts-widget-with-thumbnails {
+	display: block;	
+
+	li {
+		display: block;
+		float: left;
+		width: 50%;
+	}
+}
+.widget-area-bottom {	
+	font-family: $font__main;
+	font-size: 1em;
+	background-color: $color_dark;
+	&::after{
+	    clear: both;
+	    content: "";
+	    display: block;
+	}
+}
+
+
+
+.widget_text {
+	width: 50%;
+	float: left;
+	clear: left;
+	padding: 0em 0em 4em 4em;
+	color: $color_header-text;
+	background-color: $color_dark;
+}
+
+.jr-insta-slider {
+	width: 50%;
+	float: left;
+	padding: 0em 4em 4em 0em;
+	color: $color_header-text;
+	background-color: $color_dark;
+	
+}
+
+@include bp(mediummax) {
+	.recent-posts-widget-with-thumbnails li {
+		width: 100%;
+	}
+}
+
+@include bp(footerbreak) {
+	.widget-area-bottom {
+		width: 100%;
+	}
+
+	.widget-area {
+		margin: 0;
+		padding: 4em;
+	}
+
+	.widget_text {
+		width: 100%;
+		padding: 2em 4em;
+	}
+
+	.textwidget {
+		text-align: center;
+	}
+
+	.jr-insta-slider {
+		width: 100%;
+		clear: both;
+		padding: 2em 4em;
+	}
+}

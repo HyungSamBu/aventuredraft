@@ -1,0 +1,362 @@
+.main-navigation {
+  clear: both;
+  display: block;
+  width: 100%;
+  font-family: $font__main;
+  font-size: 1.4em;
+  @include bp(smallmax) {
+  		font-size: 1.2em;
+  }
+  a {
+    display: block;
+    padding: 0.8em;
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    &:hover {
+    	text-decoration: underline;
+    	font-weight: bold;
+    }
+  }
+  ul {
+    display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+    list-style: none;
+    margin: 0;
+    ul {
+      display: none;
+      margin-left: 0.8em;
+    }
+    .toggled-on {
+      display: block;
+    }
+  }
+  li {
+    border-top: 1px solid #eaeaea;
+    border-top: 1px solid rgba(51, 51, 51, 0.1);
+    position: relative;
+    background-color: $color_light;
+  }
+  .current_page_item > a, .current-menu-item > a, .current_page_ancestor > a {
+    font-weight: 700;
+  }
+
+  .nav-menu > {
+    ul > li:first-child, li:first-child {
+      border-top: 0;
+    }
+  }
+  .page_item_has_children > a, .menu-item-has-children > a {
+    padding-right: 48px;
+  }
+  .menu-item-description {
+    color: #707070;
+    color: rgba(51, 51, 51, 0.7);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 12px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0.5em;
+  }
+
+  .toggled {
+    position: fixed;
+    bottom: 0;
+    padding: 1em;
+    z-index: 1;
+  }
+}
+
+.no-js .main-navigation ul ul {
+  display: block;
+}
+
+.dropdown-toggle {
+  background-color: $color_light;
+  color: #ffffff;
+  font-family: 'FontAwesome';
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 42px;
+  padding: 0;
+  margin: 0.5em;
+  position: absolute;
+  text-transform: lowercase;
+  /* Stop screen readers to read the text as capital letters */
+  top: 3px;
+  right: 0;
+  width: 42px;
+  &:after {
+    @include content("f13a");
+    font-size: 1.4em;
+    line-height: 1.4em;
+    position: relative;
+    top: 0;
+    left: 1px;
+    width: 42px;
+  }
+  &:hover {
+    background-color: #ffffff;
+  }
+  &:focus {
+    background-color: #eaeaea;
+    background-color: rgba(51, 51, 51, 0.1);
+  }
+  &.toggle-on:after {
+    @include content("f139");
+  }
+}
+
+
+//Hovering Menu
+
+.main-navigation.toggled {
+  position: fixed;
+  bottom: 0;
+  padding: 1em;
+  z-index: 1;
+}
+
+.nav-menu {
+  background-color: $color_light;
+}
+
+.main-navigation.toggled ul {
+  max-height: calc(100vh - 8em);
+  overflow-y: auto;
+  ul {
+    display: none;
+    &.toggled-on {
+      display: block;
+      > ul {
+        display: block;
+      }
+    }
+  }
+}
+
+
+
+/*.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 1.5em;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		float: left;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+.menu-toggle {
+  position: fixed;
+  z-index: 100;
+  bottom: 1em;
+  font-size: 1em;
+  text-transform: uppercase;
+  background-color: $color_light;
+  color: #ffffff;
+  border: solid 2px #ffffff;
+  transition: all ease-out 400ms;
+}
+
+.menu-toggle.hide {
+  bottom: -2.5em;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
+
+/* Horizontal Widescreen Menu */
+
+@include bp(medium) {
+  /* Position the menu in the header */
+  .main-navigation {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 3.5em;
+    background-color: $color_light;
+    &.toggled {
+      position: relative;
+      min-height: 3.5em;
+      max-width: 58em;
+      margin: 0 auto;
+      padding: 0 3.5em;
+      background-color: #000;
+      background-color: hsla(0, 0%, 0%, 0.7);
+    }
+  }
+  .nav-menu {
+    background-color: transparent;
+  }
+  .main-navigation {
+    ul {
+      max-height: none;
+      padding-left: 0;
+      text-align: center;
+    }
+    &.toggled ul {
+      max-height: none;
+      padding-left: 0;
+      text-align: center;
+      overflow-y: visible;
+    }
+    li {
+      display: inline-block;
+      border: none;
+    }
+    ul ul {
+      outline: 1px solid #333;
+    }
+    li li {
+      display: block;
+      text-align: left;
+    }
+    a, ul ul li:last-child a {
+      border-bottom: none;
+    }
+    a {
+      &:hover, &:focus {
+        background: transparent;
+        color: #fff;
+        text-decoration: underline;
+        outline: solid 1px #b3b3b3;
+      }
+    }
+    li li a {
+      &:hover, &:focus {
+        background: #eee;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+    ul ul {
+      &.toggled-on {
+        position: absolute;
+        width: 12em;
+        display: block;
+        z-index: 10;
+        margin-left: 0;
+        background: #000;
+      }
+      ul {
+        &.toggled-on {
+          position: relative;
+        }
+        a {
+          padding-left: 2em;
+        }
+      }
+    }
+  }
+
+  .dropdown-toggle {
+    top: 11px;
+    right: 12px;
+    border: none;
+    &::after {
+      line-height: 27px;
+      width: 27px;
+    }
+  }
+}
