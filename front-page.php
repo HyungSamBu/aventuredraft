@@ -50,6 +50,50 @@ get_header(); ?>
 					?>
 				</div>
 			</section>
+			<section id="instagram">
+				<div class="indent clear">
+					<?php 
+					$query = new WP_Query( 'pagename=instagram' );
+						// The Loop
+						if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
+							echo '<h1 class="entry-title">';
+								the_title();
+								echo'</h1>';
+							echo '<div class="entry-content">';
+							the_content();
+							echo '</div>';
+						}
+					}
+
+						/* Restore original Post Data */
+						wp_reset_postdata();
+					?>
+				</div><!-- .indent -->
+			</section><!-- #instagram -->
+			<section id="meet">
+				<div class="indent clear">
+					<?php 
+					$query = new WP_Query( 'pagename=wheres-meagen' );
+						// The Loop
+						if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
+							echo '<h1 class="entry-title">';
+								the_title();
+								echo'</h1>';
+							echo '<div class="entry-content">';
+							the_content();
+							echo '</div>';
+						}
+					}
+
+						/* Restore original Post Data */
+						wp_reset_postdata();
+					?>
+				</div><!-- .indent -->
+			</section><!-- #meet -->
 
 	
 		</div><!-- #content -->
