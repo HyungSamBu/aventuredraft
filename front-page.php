@@ -1,7 +1,5 @@
-<?php
-if ( 'posts' == get_option( 'show_on_front' ) ) {
-    include( get_home_template() );
-} else { ?>
+
+
 <?php
 /**
  * Template Name: Front Page Template
@@ -19,26 +17,43 @@ if ( 'posts' == get_option( 'show_on_front' ) ) {
 get_header(); ?>
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
-			<?php
-			$query = new WP_query('pagename=travel-log');
-			//Loop
-			if ( $query->have_posts() ) {
-				while ($query->have_posts() ) {
-					$query->has_post_thumbnail();
-						if ($query--> has_post_thumbnail()); {
 
-						echo '<div class="travel-log-entries">';
-						get_post_thumbnail();
-						echo '</div>';
-					}
-				}
-			}
-			wp_reset_postdata();
-			?>
+			<section id = "recent-post">
+				<div>
+					<?php
+						$parems = array(
+							'pagename' => 'travel-log' ,
+							'posts_per_page' => 1,
+							'ignore_sticky_posts' => 1, );
+						$query = new WP_query( $parems );
+						//The Content Loop
+						if ( $query->have_posts()) {
+							while ($query->have_posts()) {
+								$query->the_post();
+								echo '<h1 class="entry-title">';
+								the_title();
+								echo'</h1>';
 
+								the_post_thumbnail();
+
+								echo '<div class="entry-meta">';
+								the_meta();
+								echo '</div>';
+
+								echo '<div class="entry-content">';
+								the_content();
+								echo '</div>';
+							}
+						}
+
+						wp_reset_postdata();
+					?>
+				</div>
+			</section>
+
+	
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
-<?php }	?>
